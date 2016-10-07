@@ -1,0 +1,449 @@
+/**
+ * Menu Styles
+ */
+
+.fieldset-auto-width {
+	display: inline-block;
+}
+
+.menu_header
+{
+	vertical-align:middle;
+	background-color:#d0eace; 
+	padding-top:24px;
+	padding-bottom:24px;
+	padding-left:24px;
+	padding-right:24px;
+	width:500px;
+}
+.menu_button
+{
+	padding-top:12px;
+	padding-left:8px;
+	width:50px;
+	vertical-align:middle;
+}
+
+
+.menu_description
+{
+	padding-top:12px;
+	padding-left:8px;
+	padding-right:8px;
+	width:400px;
+
+}
+
+.created_by
+{
+	display:inline-block;
+	float:right;
+}
+
+input,.container
+{
+  background-color:white;
+}
+
+select
+{
+   color: #000;
+   font-size: 12px;
+   background: transparent;
+   /*-webkit-appearance: none;*/
+}
+
+button, option {
+  background-color: white;/*#d0eace;*/
+}
+
+input[type=radio] {
+	visibility: hidden;
+}
+
+/**
+ * frnakRadio Buttons!
+ */
+.frnakRadio {
+	width: 24px;
+	height: 24px;
+	background: #ddd;
+	margin: 10px 10px;
+
+	border-radius: 100%;
+	position: relative;
+	-webkit-box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+	box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+}
+
+/**
+ * Create the checkbox button
+ */
+.frnakRadio label {
+	display: block;
+	width: 18px;
+	height: 18px;
+	border-radius: 100px;
+
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	transition: all .5s ease;
+	cursor: pointer;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	z-index: 1;
+
+	background: #333;
+
+	-webkit-box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
+	box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
+}
+
+/**
+ * Create the checked state
+ */
+.frnakRadio input[type=radio]:checked + label {
+	background: #26ca28;
+}
+
+.checkname
+{
+	display: block;	
+	margin: 10px 35px;
+}
+
+
+input[type=text] {
+	height:2.2em;
+	padding:5px 5px;
+	margin-bottom: 10px ;
+	border-radius:.75em;
+	-moz-border-radius:.5em;
+	-webkit-border-radius:.5em;
+	text-transform:none;
+	width:200px;
+	background:-webkit-gradient(linear, left top, left 25, from(#FFF), color-stop(1%,#FFF), to(#d0eace));
+	background:-moz-linear-gradient(right, #EEEDEE, #d0eace); /* For Firefox 3.6 to 15 */
+	color:#000;
+	font-size:.9em;
+}
+
+input[type=text]:focus{
+	box-shadow:1px 1px 10px #446;
+	outline:none;
+}
+
+.crunch:hover
+{
+	background-color: #d0eace;
+	font-weight:bold;
+}
+
+.centercontainer {
+	/* Internet Explorer 10 */
+	display:-ms-flexbox;
+	-ms-flex-pack:center;
+	-ms-flex-align:center;
+
+	/* Firefox */
+	display:-moz-box;
+	-moz-box-pack:center;
+	-moz-box-align:center;
+
+	/* Safari, Opera, and Chrome */
+	/*display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;*/
+
+	/* W3C */
+	display:box;
+	box-pack:center;
+	box-align:center;
+
+	display: inline-block;
+
+
+}
+
+.status
+{
+	border-radius: 100%;
+	margin:0px 20px;
+	border: 1px solid black;
+	width: 15px;
+	height: 15px;
+	float:center;
+}
+
+.queued
+{
+	background: yellow;
+}
+
+.running
+{
+	background:green;
+}
+
+.failed
+{
+	background:red;
+}
+
+.key
+{
+	float: left;
+	width: 15px;
+	text-align: left;
+	margin: 2px 2px;
+	margin-left:25px;
+	display: inline-block;
+}
+
+.keytext
+{
+	width: 80px;
+	float: left;
+	text-align: left;
+	margin: 2px 2px;
+	display: inline-block;
+	font-size:14px;
+	font:Times;
+}
+
+.helper {
+    position: relative;
+    padding: 5px;
+    width: 15px; height:15px;
+    cursor:pointer;
+}
+
+#loading-image {
+    margin:0 auto;
+    background-color: #c0dabd;
+    width: 128px;
+    height: 128px;
+    z-index: 50;
+    
+    position:absolute;
+    left:45%;
+    top:40%;
+    margin:-0px 0 0 -0px;
+
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px; /* future proofing */
+    -khtml-border-radius: 10px;
+}
+
+//FRNAKCHECK!!!
+
+input[type=checkbox] {
+        visibility: hidden;
+}
+
+
+.frnakcheckbox {
+	width: 24px;
+	height: 22px;
+	background: #fcfff4;
+
+	background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+	margin: -12px 5px auto;
+	-webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	position: absolute;
+}
+
+.frnakcheckbox label {
+	cursor: pointer;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	left: 2px;
+	top: 0px;
+
+	-webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+	box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+
+	background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+	background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+	background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+	background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+	background: linear-gradient(top, #222 0%, #45484d 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+}
+
+.frnakcheckbox label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	opacity: 0;
+	content: '';
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	background: #00bf00;
+
+	background: -webkit-linear-gradient(top, #00bf00 0%, #009400 100%);
+	background: -moz-linear-gradient(top, #00bf00 0%, #009400 100%);
+	background: -o-linear-gradient(top, #00bf00 0%, #009400 100%);
+	background: -ms-linear-gradient(top, #00bf00 0%, #009400 100%);
+	background: linear-gradient(top, #00bf00 0%, #009400 100%);
+
+	top: 2px;
+	left: 2px;
+
+	-webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+}
+
+.frnakcheckbox label:hover::after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	filter: alpha(opacity=30);
+	opacity: 0.3;
+}
+
+.frnakcheckbox input[type=checkbox]:disabled{
+        background: #FFFFFF;
+	background: -webkit-linear-gradient(top, #ffffff 0%, #009400 100%);
+        background: -moz-linear-gradient(top, #ffffff 0%, #009400 100%);
+        background: -o-linear-gradient(top, #ffffff 0%, #009400 100%);
+        background: -ms-linear-gradient(top, #ffffff 0%, #009400 100%);
+        background: linear-gradient(top, #ffffff 0%, #009400 100%);
+
+}
+
+
+
+.frnakcheckbox input[type=checkbox]:checked + label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	opacity: 1;
+}
+
+.checklabel {
+	margin: -10px 40px auto;
+}
+
+
+.yellow{
+/*Gradient*/
+	background: rgb(255,197,120); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(255,197,120,1) 0%, rgba(251,157,35,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,197,120,1)), color-stop(100%,rgba(251,157,35,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(255,197,120,1) 0%,rgba(251,157,35,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(255,197,120,1) 0%,rgba(251,157,35,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(255,197,120,1) 0%,rgba(251,157,35,1) 100%); /* IE10+ */
+	background: linear-gradient(top, rgba(255,197,120,1) 0%,rgba(251,157,35,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffc578', endColorstr='#fb9d23',GradientType=0 ); /* IE6-9 */
+}
+
+
+.green{
+	background: rgb(205,235,142); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(205,235,142,1) 0%, rgba(165,201,86,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(205,235,142,1)), color-stop(100%,rgba(165,201,86,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(205,235,142,1) 0%,rgba(165,201,86,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(205,235,142,1) 0%,rgba(165,201,86,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(205,235,142,1) 0%,rgba(165,201,86,1) 100%); /* IE10+ */
+	background: linear-gradient(top, rgba(205,235,142,1) 0%,rgba(165,201,86,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cdeb8e', endColorstr='#a5c956',GradientType=0 ); /* IE6-9 */
+}
+
+.blue{
+        background: rgb(205,235,142); /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(165,201,250,1) 0%, rgba(165,201,222,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(165,201,250,1)), color-stop(100%,rgba(165,201,222,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(165,201,250,1) 0%,rgba(165,201,222,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(165,201,250,1) 0%,rgba(165,201,222,1) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, rgba(165,201,250,1) 0%,rgba(165,201,222,1) 100%); /* IE10+ */
+        background: linear-gradient(top, rgba(165,201,250,1) 0%,rgba(165,201,222,1) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cdeb8e', endColorstr='#a5c956',GradientType=0 ); /* IE6-9 */
+}
+
+.testbutton {
+  font-family: arial;
+  font-weight: bold;
+  color: #000000 !important;
+  font-size: 14px;
+  text-shadow: 1px 1px 0px #7CACDE;
+  box-shadow: 3px 1px 1px #BEE2F9;
+  padding: 10px 25px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: 2px solid #3866A3;
+  background: #24B38D;
+  background: linear-gradient(top,  #4BBD7D,  #709EBD);
+  background: -ms-linear-gradient(top,  #4BBD7D,  #709EBD);
+  background: -webkit-gradient(linear, left top, left bottom, from(#4BBD7D), to(#709EBD));
+  background: -moz-linear-gradient(top,  #4BBD7D,  #709EBD);
+}
+
+.testbutton:hover {
+  color: #14396A !important;
+  background: #468CCF;
+  background: linear-gradient(top,  #468CCF,  #63B8EE);
+  background: -ms-linear-gradient(top,  #468CCF,  #63B8EE);
+  background: -webkit-gradient(linear, left top, left bottom, from(#468CCF), to(#63B8EE));
+  background: -moz-linear-gradient(top,  #468CCF,  #63B8EE);
+}
+
+#button-container{
+	position:relative;
+	left:0%;
+	width:203px;
+	height:43px;
+	background:#022c3e;
+	padding-top:5px;
+	margin-top:10px;
+	-webkit-border-radius:38px;
+	-moz-border-radius:38px;
+	border-radius:38px;
+	-webkit-box-shadow:inset 0 1px 2px #000, 0px 1px 1px rgba(255,255,225,0.2);
+	-moz-box-shadow:inset 0 1px 2px #000, 0px 1px 1px rgba(255,255,225,0.2);
+	box-shadow:inset 0 1px 2px #000, 0px 1px 0px rgba(255,255,225,0.3);
+	/*Hover effect*/
+	-webkit-transition: .5s all;
+	-moz-transition: .5s all;
+	-o-transition: .5s all;
+	-ms-transition: .5s all;
+	transition: .5s all;
+}
+
+#button{
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width:193px;
+	height:38px;
+	margin:0px auto;
+	-webkit-border-radius:20px;
+	-moz-border-radius:20px;
+	border-radius:20px;
+	cursor:pointer;
+
+}
+
+#container{
+	font-family:Arial, Helvetica, sans-serif;
+	position:absolute;
+	top:0;
+	left:0;
+	background: #005778;
+	width:0%;
+	height:0%;
+}

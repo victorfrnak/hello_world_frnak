@@ -1,0 +1,365 @@
+
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+
+<!--
+this is the stylesheet link which was originally used
+-->
+<link rel="STYLESHEET" type="text/css" href="css_dir/style.css">
+
+<!--
+<link rel="STYLESHEET" type="text/css" href="css_dir/style.css">
+-->
+
+
+<input type="button" id="button" value="Open Confirm Dialog" />
+<div id="dialog-confirm">
+    <!-- this is the code for the helper class -->
+    
+    <div class="help" id="help1" style="" title="Expected Distance">
+	<font size="3"><center>This is the expected (mean) inner distance between mate pairs. For, example, for paired end runs with fragments selected at 300bp, where each end is 50bp, you should set -r to be 200. The default is 50bp.</center></font>
+    </div>
+				
+    <div class="help" id="help2" style="" title="Read Gap Length">
+	<font size="3"><center>The standard deviation for the distribution on inner distances between mate pairs. The default is 20bp.</center></font>
+    </div>
+		    	
+    <div class="help" id="help3" style="" title="Maximum Fragment Multi-hits">
+	<font size="3"><center>Instructs TopHat to allow up to this many alignments to the reference for a given read, and choose the alignments based on their alignment scores if there are more than this number. The default is 20 for read mapping. Unless you use --report-secondary-alignments, TopHat will report the alignments with the best alignment score. If there are more alignments with the same score than this number, TopHat will randomly report only this many alignments. In case of using --report-secondary-alignments, TopHat will try to report alignments up to this option value, and TopHat may randomly output some of the alignments with the same score to meet this number.</center></font>
+    </div>
+				 
+    <div class="help" id="help4" style="" title="Max-bundle-frags">
+	<font size="3"><center>Sets the maximum number of fragments a locus may have before being skipped. Skipped loci are listed in skipped.gtf. Default: 1000000.</center></font>
+    </div>
+				
+    <div class="help" id="help5" style="" title="Maximum Intron Length">
+	<font size="3"><center>The maximum intron length. Cufflinks will not report transcripts with introns longer than this, and will ignore SAM alignments with REF_SKIP CIGAR operations longer than this. The default is 300,000..</center></font>
+    </div>
+                    
+    <div class="help" id="help6" style="" title="Upper Quartile Normalization">
+	<font size="3"><center>With this option, Cufflinks normalizes by the upper quartile of the number of fragments mapping to individual loci instead of the total number of sequenced fragments. This can improve robustness of differential expression calls for less abundant genes and transcripts.</center></font>
+    </div>
+				
+    <div class="help" id="help7" style="" title="Raw Mapped Normalization">
+	<font size="3"><center>Pure FPKM normalization.</center></font>
+    </div>
+				
+    <div class="help" id="help8" style="" title="Length Correction">
+	<font size="3"><center>Cufflinks will not normalize fragment counts by transcript length at all. Use this option when fragment count is independent of the size of the features being quantified (e.g. for small RNA libraries, where no fragmentation takes place, or 3 prime end sequencing, where sampled RNA fragments are all essentially the same length). Experimental option, use with caution.</center></font>
+    </div>
+				
+    <div class="help" id="help9" style="" title="Effective Length Normalization">
+	<font size="3"><center>Cufflinks will not employ its “effective” length normalization to transcript FPKM</center></font>
+    </div>
+				
+    <!-- this is the actual code for the table-->
+<form id = "form" action='testing_advanced_options_table.html' > 
+    <table>
+        <tr>
+	    
+            <td>
+                <div id="a1" class = "left">
+        	    <label><font color = "white">Expected Fragment Length </font></label><span class="helper" id="help1" style="color:blue;"><b>?</b></span><br><br>
+			<input type="text" id="expectedFragmentLength" name="expectedFragmentLength" class = ""><br/>
+		    &nbsp;
+		</div>
+            </td>
+    
+            <td>
+		<div id="a2" class = "right">                  
+		    <label><font color = "white">Fragment Length Standard Deviation</font></label><span class="helper" id="help2" style="color:blue;"><b>?</b></span><br><br>
+		    <input type="text" id="fragStdDev" name="fragStdDev" class = "frnakEntry"><br/>
+		    &nbsp;
+		</div>
+	    </td>
+	    
+	    <td>
+		<div id="a3" class = "left">
+		    <label><font color = "white">Maximum Fragment Multi-hits</font></label><span class="helper" id="help3" style="color:blue;"><b>?</b></span><br><br>
+		    <input type="text" id="maxFragMultihits" name="maxFragMultihits" class = "frnakEntry"><br/>
+		    &nbsp;
+		</div>	
+	    </td>
+	</tr>
+	<tr>
+	    <td>
+		<div id = "a8" class = "right"> 
+		    <label><font color = "white">Max-bundle Frags</font></label><span class="helper" id="help4" style="color:blue;"><b>?</b></span><br><br>
+			<input type="text" id="bundleFrags" name="bundleFrags" class = "frnakEntry"><br/>
+			&nbsp;
+		</div>  
+	    </td>
+	    <td>
+		<div id = "a9" class = "left"> 
+		    <label><font color = "white">Max-bundle Lengths</font></label><span class="helper" id="help5" style="color:blue;"><b>?</b></span><br><br>
+			<input type="text" id="bundleLengths" name="bundleLengths" class = "frnakEntry"><br/>
+			&nbsp;
+		</div>
+	    </td>  
+	    <td>
+		<div id = "a6" class = "right">
+		    <label><font color = "white">Upper Quartile Normalization</font></label><span class="helper" id="help6" style="color:blue;"><b>?</b></span><br>
+			<table>
+			<td>
+			    <div class="frnakRadio">
+			    <div class="checkname"><font color = white>True</font></div>
+			    <input type="radio" id="frnakRadioInput1" name="upperQuant" value="True" >
+			    <label for="frnakRadioInput1"></label></div>
+			</td>
+			<td>
+		         &nbsp; <font color = "white">&nbsp;&nbsp; &nbsp;</font>
+			</td>
+			<td>
+			<div class="frnakRadio">
+			<div class="checkname"><font color = white>False</font></div>
+			<input type="radio" id="frnakRadioInput2" name="upperQuant" value="False" checked>
+			<label for="frnakRadioInput2"></label></div>
+			</td>
+		    </table>		    
+		    &nbsp;
+		</div>
+	    </td>
+	</tr>
+	<tr>
+	    <td>
+		<div id = "a7" class = "left">
+		    <label><font color = "white">Raw Mapped Normalization</font></label><span class="helper" id="help7" style="color:blue;"><b>?</b></span><br><br>
+		    <table>
+			<td>
+			    <div class="frnakRadio">
+			    <div class="checkname"><font color = white>True</font></div>
+			    <input type="radio" id="frnakRadioInput3" name="rawMapped" value="True" >
+			    <label for="frnakRadioInput3"></label></div>
+			</td>
+			<td>
+		         &nbsp; <font color = "white">&nbsp;&nbsp; &nbsp;</font>
+			</td>
+			<td>
+			<div class="frnakRadio">
+			<div class="checkname"><font color = white>False</font></div>
+			<input type="radio" id="frnakRadioInput4" name="rawMapped" value="False" checked>
+			<label for="frnakRadioInput4"></label></div>
+			</td>
+		    </table>
+		    &nbsp;
+		</div>
+	    </td>
+	     <td>
+	    <div id="a4" class = "right">
+		<label><font color = "white">Length Correction</font></label><span class="helper" id="help8" style="color:blue;"><b>?</b></span><br><br>
+		<table>
+		<td>
+		<div class="frnakRadio">
+		<div class="checkname"><font color = white>True</font></div>
+		<input type="radio" id="frnakRadioInput5" name="lengthCorrection" value="True" >
+		<label for="frnakRadioInput5"></label></div>
+		</td>
+		<td>
+		     &nbsp; <font color = "white">&nbsp;&nbsp; &nbsp;</font>
+		</td>
+		<td>
+		<div class="frnakRadio">
+		<div class="checkname"><font color = white>False</font></div>
+		<input type="radio" id="frnakRadioInput6" name="lengthCorrection" value="False" checked>
+		<label for="frnakRadioInput6"></label></div>
+		</td>
+		</table>
+		    &nbsp;
+		</div>
+	    </td>
+	    
+	    <td>
+		<div id = "a5" class = "left">
+		    <label><font color = "white">Effective Length Correction</font></label><span class="helper" id="help9" style="color:blue;"><b>?</b></span><br><br>
+		    <table>
+		    <td>
+		    <div class="frnakRadio">
+		    <div class="checkname"><font color = white>True</font></div>
+		    <input type="radio" id="frnakRadioInput7" name="effectLength" value="True" >
+		    <label for="frnakRadioInput7"></label></div>
+		    </td>
+		<td>
+		     &nbsp; <font color = "white">&nbsp;&nbsp; &nbsp;</font>
+		</td>
+		<td>
+		    <div class="frnakRadio">
+		    <div class="checkname"><font color = white>False</font></div>
+		    <input type="radio" id="frnakRadioInput8" name="effectLength" value="False" checked>
+		    <label for="frnakRadioInput8"></label></div>
+		</td>
+		</table>
+		    &nbsp;
+		</div>
+		    &nbsp;
+		</div>
+	    </td>
+	</tr>
+    </table>
+    <tr>
+	<!--<button type="submit" id="submit"></button> /> -->
+	<input type="submit" id="submit"/>
+    </tr>
+</div>
+</form>
+
+<p><tt id="results"></tt></p>
+
+
+
+<script>
+$(document).ready(function(){	
+    function showValues() {
+        var str = $( "#form" ).serialize();
+        $( "#results" ).text( str );
+        alert( str );
+        alert("hello world");
+      }
+  //$( "input[type='text'], input[type='radio']" ).on( "submit", showValues );
+  $( "#submit" ).on( "submit", showValues );
+  //$( "select" ).on( "change", showValues );
+  showValues();
+});
+
+
+//jquery script for the dialog box button
+$(document).ready(function(){	
+	//opens up the document
+	$(function() {
+		$("#dialog-confirm").dialog({
+			autoOpen: false
+		});
+		
+		$("#button").on("click", function() {
+			$("#dialog-confirm").dialog("open");
+		});
+	});
+	$("#form").submit(function(e){
+	    
+	    showValues();
+			  
+	});
+});
+
+/*
+$(document).ready(function(){
+    $("#submit").submit(function(e)
+    {
+	var expectedFragmentLength = $("#expectedFragmentLength").val();
+	var fragStdDev = $("#fragStdDev").val();
+	var maxFragMultihits= $("#maxFragMultihits").val();
+	var bundleFrags = $("#bundleFrags").val();
+	var bundleLengths = $("#bundleLengths").val();
+	var upperQuant = $("[name='upperQuant']").val();
+	var rawMapped = $("[name='rawMapped']").val();
+	var lengthCorrection = $("[name='lengthCorrection']").val();
+	var effectLength = $("[name='effectLength']").val();
+	
+	var optionsString = "";
+	var isValidated = True;
+	
+	if (isNaN(expectedFragmentLength) == 0)
+	{
+	    optionsString += "-m" + expectedFragmentLength;
+	}
+	
+	if (isNaN(expectedFragmentLength) == 1)
+	{
+	    isValidated = false;   
+	}
+	
+	if (isNaN(fragStdDev) == 0)
+	{
+	    optionsString += "-s" + fragStdDev;
+	}
+	
+	if (isNaN(fragStdDev) == 1)
+	{
+	    isValidated = false;   
+	}
+	
+	if (isNaN(maxFragMultihits) == 0)
+	{
+	    optionsString += "-max-frag-multihits" + maxFragMultihits;
+	}
+	
+	if (isNaN(maxFragMultihits) == 1)
+	{
+	    isValidated = false;   
+	}
+	
+	if (isNaN(bundleFrags) == 0)
+	{
+	    optionsString += "-max-bundle-frags" + bundleFrags;
+	}
+	
+	if (isNaN(bundleFrag) == 1)
+	{
+	    isValidated = false;   
+	}
+	
+	if (isNaN(bundleLengths) == 0)
+	{
+	    optionsString += "-max-bundle-length" +  bundleLengths;
+	}
+	
+	if (isNaN(bundleLengths) == 1)
+	{
+	    isValidated = false;   
+	}
+	if (isValidated == false)
+    {
+	alert("make sure all of the fields are numerical");	
+    
+    }
+    
+    if (isValidated == true)
+    {
+	alert(optionsString);	
+    
+    }
+	
+    });
+});
+*/
+
+//jquery script for the helper
+$( document ).ready(
+function() {
+
+	$(document).mousemove(function (e) {
+		$( ".help" ).dialog("option", "position", {
+        		my: "left+30 top+30-$(document).scrollTop()",
+        		at: "left top",
+        		of: e
+      		});
+
+	});
+        $('.help').each(function(k,v){ // Go through all Divs with .box class
+        	var help = $(this).dialog({ autoOpen: false });
+		$(this).parent().find('.ui-dialog-titlebar-close').hide();
+
+		$( "#help"+(k+1) ).mouseover(function() { // k = key from the each loop
+                	help.dialog( "open" );
+                }).mouseout(function() {
+                    	help.dialog( "close" );
+                });
+	});
+});
+</script>
+
+<style>
+input[type=submit]{
+width:30%;
+border: 1px solid #59b4d4;
+background: #0078a3;
+color: #eeeeee;
+padding: 3px 0px;
+border-radius: 5px;
+margin-left: 33%;
+cursor:pointer;
+}
+    
+</style>
+
+060315.01-28-2015

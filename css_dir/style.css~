@@ -1,0 +1,107 @@
+input,.container
+{
+  background-color:white;
+}
+
+select
+{
+   color: #000;
+   font-size: 12px;
+   background: transparent;
+   /*-webkit-appearance: none;*/
+}
+
+button, option {
+  background-color: white;/*#d0eace;*/
+}
+
+input[type=radio] {
+	visibility: hidden;
+}
+
+/**
+ * frnakRadio Buttons!
+ */
+.frnakRadio {
+	width: 24px;
+	height: 24px;
+	background: #ddd;
+	margin: 10px 10px;
+
+	border-radius: 100%;
+	position: relative;
+	-webkit-box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+	box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+}
+
+/**
+ * Create the checkbox button
+ */
+.frnakRadio label {
+	display: block;
+	width: 18px;
+	height: 18px;
+	border-radius: 100px;
+
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	transition: all .5s ease;
+	cursor: pointer;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	z-index: 1;
+
+	background: #333;
+
+	-webkit-box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
+	box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
+}
+
+/**
+ * Create the checked state
+ */
+.frnakRadio input[type=radio]:checked + label {
+	background: #26ca28;
+}
+
+.checkname
+{
+	display: block;	
+	margin: 10px 35px;
+}
+
+
+input[type=text] {
+	height:2.2em;
+	padding:5px 5px;
+	margin-bottom: 10px ;
+	border-radius:.75em;
+	-moz-border-radius:.5em;
+	-webkit-border-radius:.5em;
+	text-transform:none;
+	width:200px;
+	background:-webkit-gradient(linear, left top, left 25, from(#FFF), color-stop(1%,#FFF), to(#d0eace));
+	background:-moz-linear-gradient(right, #EEEDDE, #d0eace); /* For Firefox 3.6 to 15 */
+	color:#000;
+	font-size:.9em;
+}
+
+input[type=text]:focus{
+	box-shadow:1px 1px 10px #446;
+	outline:none;
+}
+
+.crunch:hover
+{
+background-color: #d0eace;
+font-weight:bold;
+}
+
+
+
+

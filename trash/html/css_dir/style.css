@@ -1,0 +1,218 @@
+/**
+ * Menu Styles
+ */
+
+.fieldset-auto-width {
+	display: inline-block;
+}
+
+.menu_header
+{
+	vertical-align:middle;
+	background-color:#d0eace; 
+	padding-top:24px;
+	padding-bottom:24px;
+	padding-left:24px;
+	padding-right:24px;
+	width:500px;
+}
+.menu_button
+{
+	padding-top:12px;
+	padding-left:8px;
+	width:50px;
+	vertical-align:middle;
+}
+
+
+.menu_description
+{
+	padding-top:12px;
+	padding-left:8px;
+	padding-right:8px;
+	width:400px;
+
+}
+
+.created_by
+{
+	display:inline-block;
+	float:right;
+}
+
+input,.container
+{
+  background-color:white;
+}
+
+select
+{
+   color: #000;
+   font-size: 12px;
+   background: transparent;
+   /*-webkit-appearance: none;*/
+}
+
+button, option {
+  background-color: white;/*#d0eace;*/
+}
+
+input[type=radio] {
+	visibility: hidden;
+}
+
+/**
+ * frnakRadio Buttons!
+ */
+.frnakRadio {
+	width: 24px;
+	height: 24px;
+	background: #ddd;
+	margin: 10px 10px;
+
+	border-radius: 100%;
+	position: relative;
+	-webkit-box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+	box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+}
+
+/**
+ * Create the checkbox button
+ */
+.frnakRadio label {
+	display: block;
+	width: 18px;
+	height: 18px;
+	border-radius: 100px;
+
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	transition: all .5s ease;
+	cursor: pointer;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	z-index: 1;
+
+	background: #333;
+
+	-webkit-box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
+	box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
+}
+
+/**
+ * Create the checked state
+ */
+.frnakRadio input[type=radio]:checked + label {
+	background: #26ca28;
+}
+
+.checkname
+{
+	display: block;	
+	margin: 10px 35px;
+}
+
+
+input[type=text] {
+	height:2.2em;
+	padding:5px 5px;
+	margin-bottom: 10px ;
+	border-radius:.75em;
+	-moz-border-radius:.5em;
+	-webkit-border-radius:.5em;
+	text-transform:none;
+	width:200px;
+	background:-webkit-gradient(linear, left top, left 25, from(#FFF), color-stop(1%,#FFF), to(#d0eace));
+	background:-moz-linear-gradient(right, #EEEDEE, #d0eace); /* For Firefox 3.6 to 15 */
+	color:#000;
+	font-size:.9em;
+}
+
+input[type=text]:focus{
+	box-shadow:1px 1px 10px #446;
+	outline:none;
+}
+
+.crunch:hover
+{
+background-color: #d0eace;
+font-weight:bold;
+}
+
+.centercontainer {
+	/* Internet Explorer 10 */
+	display:-ms-flexbox;
+	-ms-flex-pack:center;
+	-ms-flex-align:center;
+
+	/* Firefox */
+	display:-moz-box;
+	-moz-box-pack:center;
+	-moz-box-align:center;
+
+	/* Safari, Opera, and Chrome */
+	/*display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;*/
+
+	/* W3C */
+	display:box;
+	box-pack:center;
+	box-align:center;
+
+	display: inline-block;
+
+
+}
+
+.status
+{
+	border-radius: 100%;
+	margin:0px 20px;
+	border: 1px solid black;
+	width: 15px;
+	height: 15px;
+	float:center;
+}
+
+.queued
+{
+	background: yellow;
+}
+
+.running
+{
+	background:green;
+}
+
+.failed
+{
+	background:red;
+}
+
+.key
+{
+	float: left;
+	width: 15px;
+	text-align: left;
+	margin: 2px 2px;
+	margin-left:25px;
+	display: inline-block;
+}
+
+.keytext
+{
+	width: 80px;
+	float: left;
+	text-align: left;
+	margin: 2px 2px;
+	display: inline-block;
+	font-size:14px;
+	font:Times;
+}
+

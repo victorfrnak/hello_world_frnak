@@ -1,0 +1,17 @@
+{ 
+ "name":"test-1467986459",
+  "appId": "allenhub-kallisto-test-0.1.19",
+  "batchQueue": "serial",
+  "executionSystem": "tacc-stampede-frnak89",
+  "maxRunTime": "08:00:00",
+  "memoryPerNode": "32GB",
+  "nodeCount": 1,
+  "processorsPerNode": 16,
+  "archive": true,
+  "archiveSystem": "data.iplantcollaborative.org",
+  "archivePath": null,
+  "inputs": {
+    "inputBam": "input.fastq",
+    "inputIndex": "input.bam"
+  }
+}

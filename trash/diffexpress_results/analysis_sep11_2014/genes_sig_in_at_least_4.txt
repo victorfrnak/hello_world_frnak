@@ -1,0 +1,2 @@
+Gene	cuffdiff_ctrl_FPKM	cuffdiff_exp_FPKM	cuffdiff_log2	cuffdiff_test_stat	cuffdiff_p_value	cuffdiff_q_value	edger_logFC	edger_logCPM	edger_PValue	edger_FDR	deseq2_baseMean	deseq2_log2FoldChange	deseq2_lfcSE	deseq2_pvalue	deseq2_padj	bayseq_library_522	bayseq_library_523	bayseq_library_524	bayseq_library_525	bayseq_likelihood	bayseq_FDR	
+

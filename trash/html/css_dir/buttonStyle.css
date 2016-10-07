@@ -1,0 +1,45 @@
+.fRNAkbutton {
+	-moz-box-shadow:inset 0px 1px 50px 3px #000203;
+	-webkit-box-shadow:inset 0px 1px 50px 3px #000203;
+	box-shadow:inset 0px 1px 50px 3px #000203;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d0eace), color-stop(1, #5c5c5c) );
+	background:-moz-linear-gradient( center top, #d0eace 5%, #5c5c5c 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d0eace', endColorstr='#5c5c5c');
+	background-color:#0fe000;
+	-webkit-border-top-left-radius:0px;
+	-moz-border-radius-topleft:0px;
+	border-top-left-radius:0px;
+	-webkit-border-top-right-radius:0px;
+	-moz-border-radius-topright:0px;
+	border-top-right-radius:0px;
+	-webkit-border-bottom-right-radius:0px;
+	-moz-border-radius-bottomright:0px;
+	border-bottom-right-radius:0px;
+	-webkit-border-bottom-left-radius:0px;
+	-moz-border-radius-bottomleft:0px;
+	border-bottom-left-radius:0px;
+	text-indent:0;
+	border:4px solid #000000;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Trebuchet MS;
+	font-size:18px;
+	font-weight:bold;
+	font-style:normal;
+	height:73px;
+	line-height:73px;
+	width:200px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 13px #000000;
+}
+.fRNAkbutton:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #5c5c5c), color-stop(1, #0fe000) );
+	background:-moz-linear-gradient( center top, #5c5c5c 5%, #0fe000 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5c5c5c', endColorstr='#0fe000');
+	background-color:#5c5c5c;
+}.fRNAkbutton:active {
+	position:relative;
+	top:1px;
+}
+

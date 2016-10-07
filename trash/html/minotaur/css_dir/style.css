@@ -1,0 +1,60 @@
+/**
+ * Menu Styles
+ */
+
+.fieldset-auto-width {
+	display: inline-block;
+}
+
+.menu_header
+{
+	vertical-align:middle;
+	background-color:#A69066; 
+	padding-top:24px;
+	padding-bottom:24px;
+	padding-left:24px;
+	padding-right:24px;
+	width:500px;
+}
+.menu_button
+{
+	padding-top:12px;
+	padding-left:8px;
+	width:50px;
+	vertical-align:middle;
+}
+
+
+.menu_description
+{
+	padding-top:12px;
+	padding-left:8px;
+	width:400px;
+
+}
+
+.created_by
+{
+	display:inline-block;
+	float:right;
+}
+
+input,.container
+{
+  background-color:white;
+}
+
+select
+{
+   color: #000;
+   font-size: 12px;
+   background: transparent;
+   /*-webkit-appearance: none;*/
+}
+
+button, option {
+  background-color: white;/*#d0eace;*/
+}
+
+
+

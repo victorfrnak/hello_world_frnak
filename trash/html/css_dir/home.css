@@ -1,0 +1,203 @@
+@function emCalc($pxWidth)
+    @return $pxWidth / 16 * 1em
+
+@mixin breakpoint($break)
+    @if $break == small
+        @media only screen and (min-width: emCalc(769))
+            @content
+a
+    text-decoration: none
+
+$colors: #8cc63f, #ef3724, #ffa61a, #1ab1ff, #FC1DCF
+nav
+    display: table
+    position: relative
+    table-layout: fixed
+    width: 100%
+
+    // hide and reset form elemetns for dropdowns
+    input
+        display: none
+    label
+        margin: 0
+
+    div.nav-container
+        display: table-row
+        & > div
+            display: table-cell
+
+        // loop through colors list and generate rules on a
+        // per color basis
+        @for $i from 1 through length($colors)
+            & > div:nth-of-type(#{length($colors)}n+#{$i})
+                // apply coloring to menu elements and nested links
+                & .slide, & a
+                    border-color: nth($colors, $i)
+                    &:hover
+                        color: darken( nth($colors, $i), 20)
+                    // set background color for child menus
+                    & ~ .child-menu
+                        background-color: lighten( nth($colors, $i), 10)
+                // set colors for color for active elements
+                & input:checked, .slide.active
+                    & ~ label
+                        color:  nth($colors, $i)
+
+
+    // set base transition spees for all a and label elements in the menu
+    a, label
+        // all a elements
+        +transition-property(color)
+        +transition-duration(.2s)
+        +transition-timing-function(ease-in)
+
+    // base styling for the sliding elements
+    .slide
+        padding: 10px 10px
+        font-size: emCalc(16)
+        display: block
+        color: #393939
+        border-top: 4px solid transparent
+        position: relative
+        // a.slide elements change border width on mouse out
+        +transition-property(border-width, color)
+        +transition-duration(.1s, .2s)
+        +transition-timing-function(ease-in)
+        +transition-delay(.2s, 0s)
+        .element
+            font-size: emCalc(20)
+            font-weight: 600
+            font-style: normal
+            display: block
+            line-height: 1
+        .name
+            font-size: emCalc(11)
+            position: relative
+
+    .has-child .name:after
+        content: ""
+        width: 10px
+        height: 4px
+        background-image: url('http://www.elemental-shift.com/remote-assets/down-arrow.svg')
+        display: block
+        position: absolute
+        bottom: -9px
+        left: 1px
+        background-repeat: no-repeat
+        +transition-property(transform)
+        +transition-duration(.5s)
+        +transition-timing-function(ease-in)
+        +transform-origin(50%, 50%)
+        
+        
+    // child menu styling
+    .child-menu
+        display: block
+        position: absolute
+        max-height: 0
+        overflow: hidden
+        background-color: #393939
+        width: 100%
+        top: 65px
+        left: 0
+        z-index: 5000
+        // mouse out timing functions
+        +transition-property(max-height)
+        +transition-duration(.5s)
+        +transition-timing-function(ease-in)
+        a
+            color: white
+            display: inline-block
+            padding: 15px 30px 15px 10px
+            font-size: emCalc(15)
+
+    // hold open child menu when input is checked
+    input:checked ~ .child-menu
+        max-height: 100px
+        // mouse in time functions
+        +transition-property(max-height)
+        +transition-duration(.5s)
+        +transition-timing-function(ease-in)
+    input:checked ~ .has-child .name:after
+        +rotateX(180deg)
+
++breakpoint(small)
+    nav
+        display: block
+        table-layout: auto
+
+        div.nav-container
+            display: block
+            & > div
+                display: block
+                margin: 5px 0
+                &:hover .slide
+                    border-left-width: 55px
+                    // a.slide transition delay on hover
+                    +transition-delay(0)
+
+        .slide
+            display: block
+            width: auto
+            border-left: solid 4px #393939
+            border-top: none
+            .element
+                line-height: 1
+
+        .child-menu
+            display: block
+            position: relative
+            top: 0
+            background-color: transparent !important
+            margin-left: 55px
+            width: auto
+            max-height: 0px
+            overflow: hidden
+            border-top: none
+            a
+                color: #393939
+                display: block
+                padding: 3px 0 3px 10px
+                font-size: emCalc(13)
+
+        input:checked ~ div.child-menu
+            max-height: 120px
+
+        input:checked ~ .slide
+            border-width: 55px
+
+.masthead
+    font-family: "Open Sans", sans-serif
+    .brand-container
+        padding: 10px
+        background-color: #393939
+        a
+            color: white
+            display: inline-block
+            +transition-property(all)
+            +transition-duration(.2s)
+            +transition-timing-function(ease-in)
+            &:hover
+                color: #8cc63f
+    .brand-initials
+        font-size: emCalc(49)
+        font-weight: 700
+        font-style: normal
+        display: block
+        line-height: 42px
+    .brand-name
+        font-size: emCalc(13)
+        text-indent: 3px
+        display: block
+
++breakpoint(small)
+    .masthead
+        position: absolute
+        top: 0
+        left: 0
+        width: 150px
+        .brand-container
+            padding: 10px 0 50px 10px
+            a
+                display: block
+
