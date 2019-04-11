@@ -67,10 +67,10 @@ if (file_exists($directoryBigTen) == FALSE)
 
 $authorization = "Authorization: Bearer $token";
 
-$ch = curl_init("https://agave.iplantc.org:443/files/v2/listings/schmidtc/coge_data/frank_mapcount_output");
+//$ch = curl_init("https://agave.iplantc.org:443/files/v2/listings/schmidtc/coge_data/frank_mapcount_output");
 
 //echo "made the change !! \n \n";
-
+$ch = curl_init("https://agave.iplantc.org:443/files/v2/listings/allenhub/mapcount_output");
 curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json' , $authorization ));
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -150,10 +150,7 @@ $toRecrunchII = $_GET['submitRecrunch'];
 
 //echo json_encode($toRecrunch) . " is the value to recrunch";
 //echo json_encode($toRecrunchII) . " is the value to recrunch";
-
-
 //echo "return reloader(recrunchForm)";
-
 //echo json_encode($toRecrunch) . " is the value to recrunch";
 
 $pathToAnalysis = $mapcountpath = "$subdirectories/mapcount_output/".$_SESSION['user_name'];
@@ -763,7 +760,7 @@ if(!empty($controllibs))
 $whereToGrep =  $subdirectories . "/old_bash_scripts/" . $_SESSION['user_name'];
 $whereToPutGrep = $subdirectories . "/old_bash_scripts/" . $_SESSION['user_name'] ."/output_of_grep.txt";
 $listOfLibs = exec("grep \"cufflinks * -\"" . " " . $whereToGrep . "/* >" . $whereToPutGrep);
-//echo "$listOfLibs";
+echo "$listOfLibs";
 //echo "$whereToGrep";
 //echo "grep \"cufflinks * -\"" . " " . $whereToGrep . "/* >" . $whereToPutGrep;
 
@@ -777,6 +774,7 @@ $listOfLibsII = exec("grep \"cufflinks * -\"" . " " . $whereToGrepII . "/* >" . 
 
 //combine the output of the two greps files
 $catFiles = $subdirectories . "/old_bash_scripts/" . $_SESSION['user_name'] ."/cat_grep_files.txt";
+echo $catFiles. " is the cat files !!! \n \n";
 exec("cat $whereToPutGrep $whereToPutGrepII > $catFiles");
 #echo "$whereToPutGrep $whereToPutGrepII > $catFiles";
 $lines = file($catFiles);
@@ -790,9 +788,10 @@ foreach ($lines as $line_num => $line) {
     //$libPattern = "/.*(cufflinks.*24).*\-g.*\/" . $_SESSION['user_name'] . "\/(.*)\/\*.gff.*library_([A-Z0-9]+)\/cufflinks_out.*/";
     $libPattern = "/.*\/genome_directory\/(.*)\*.gff.*\/" . $_SESSION['user_name'] . "\/(library_.*).*\/cufflinks_out.*/";
     preg_match($libPattern, $line, $matches);
-   // echo $matches[2] . "is the genome \n";
-  //  echo $matches[3] . "is the lib number\n";
- //   echo $line . "is thel line !!";
+   
+    //echo $matches[2] . "is the genome \n";
+    //echo $matches[3] . "is the lib number\n";
+    //echo $line . "is thel line !!";
     
     $arrayToAdd = array();
     $genome = $matches[1];
@@ -819,6 +818,8 @@ foreach ($lines as $line_num => $line) {
 }
 
 //print_r($arrayOfLibsAndGenome);
+//print " is the array of libs and genomes !!! \n \n";
+
 
 $outputwindowcount = 0;
 
@@ -927,6 +928,9 @@ if(!empty($explibs))
 
 echo "<b>Choose experimental library number(s):</b><span class=\"helper\" id=\"help3\" style=\"color:blue;\"><b>?</b></span><br><br>";
 echo "<div id=\"\" style=\"overflow:auto; min-height:40px; max-height:200;  width:200px;  display: inline-block; position: relative;\">";
+
+//Comment out on friday oct 7
+
 if(count($explibs)<3){ #because of . and .. directories existing
 	echo "<b>Note:</b> No libraries ready to crunch!<br>";
 } else {
@@ -936,6 +940,7 @@ if(count($explibs)<3){ #because of . and .. directories existing
 	{
           //echo json_encode($explibs) . "is the experimental libraries\n";
           //echo json_encode($explibrary) . "is the experimental library, single unit \n";
+
           $librarynumToDisplay = "";
 	  if ($explibrary !== "." and $explibrary !== "..")
 	  { 
@@ -953,7 +958,7 @@ if(count($explibs)<3){ #because of . and .. directories existing
               //$librarynumToDisplay = $explibrary; 
             //}
             
-            $librarynumToDisplay . " is the library number to display !!";
+            //$librarynumToDisplay . " is the library number to display !!";
 	    
 	    echo '<div class="frnakcheckbox">';
 	    echo "<input type=\"checkbox\" id=\"exp".$librarynum."\" name=\"expfilename[]\" class=\"blockedexp\" value=\"$explibrary\">";
@@ -961,7 +966,7 @@ if(count($explibs)<3){ #because of . and .. directories existing
             echo "<span class=\"frnakcheckboxHelperExp\" id=\"frnakcheckboxAnnoExp" . $countExpLibs . "\" style=\"color:white;\"><b>????????????????</b></span>";
             //$libraryname = "library_" . "$librarynum";
             echo "<div class=\"frnakcheckboxAnnoExp\" id=\"frnakcheckboxAnnoExp". $countExpLibs ."\" style=\"\" title=\"Annotation\">";
-            //echo "<font size=\"3\"><center>" . $countExpLibs . "this is a test to see if we can make dialog boxes showing the annotation associated with a given library </center></font>";
+            echo "<font size=\"3\"><center>" . $countExpLibs . "this is a test to see if we can make dialog boxes showing the annotation associated with a given library </center></font>";
             //$libraryname = "$librarynum" . "_library" ;
             // if(is_numeric($librarynum) == TRUE)
             //{
@@ -969,6 +974,8 @@ if(count($explibs)<3){ #because of . and .. directories existing
             //}
           
             $libraryname = $librarynum;
+
+	   echo  $arrayOfLibsAndGenome . " is the array of libs and genomes !!! \n \n";
             echo "This library was analyzed with genome $arrayOfLibsAndGenome[$librarynumToDisplay]"; 
             echo "</div>";
             $countExpLibs += 1;
@@ -977,6 +984,8 @@ if(count($explibs)<3){ #because of . and .. directories existing
 
 	echo "</select></div>";
 }
+
+
 ?>
 
 </div>

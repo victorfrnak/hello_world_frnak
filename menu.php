@@ -14,7 +14,7 @@ $admin = $ini['login']['admin'];
 $def_path = $ini['login']['default'];
 $subdirectories = $ini['filepaths']['subdirectories'];
 session_start();
-echo "modified, doing scan !!";
+//echo "modified, doing scan !!";
 $user = $_SESSION['user_name'];
 $token = $_SESSION['access_token'];
 

@@ -27,7 +27,7 @@ session_start();
 $token = $_SESSION['access_token'];
 $user = $_SESSION['user_name'];
 
-
+echo "hello !!!";
 if ( (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) || 
    (isset($_SESSION['SESSION_TIMEOUT']) && (time() - $_SESSION['SESSION_TIMEOUT'] > 5400)) ) {  
     // last request was more than 30 minutes ago
@@ -125,9 +125,6 @@ curl_close ($ch);
 echo "$result is the result form htseq directory !!! \n";
 
 ####Now move all of the other htseqFiles into there ###
-
-
-
 $lines = file($subdirectories . "/old_bash_scripts/" . $_SESSION['user_name'] ."/output_of_grep.txt");
 $arrayOfLibsAndGenome = array();
 foreach ($lines as $line_num => $line) {
@@ -141,17 +138,6 @@ foreach ($lines as $line_num => $line) {
     $arrayToAdd = array();
     $genomeToLookUp = $matches[1];
     $libraryToLookUp = $matches[2];
-    
-    if(is_numeric($library) == TRUE)
-    {
-      $library = $library;
-    
-    }else{
-      //echo $library . " is the library and is apparently not a number !!";
-      
-    }
-    
-    $libNumber = strval($library);
     $arrayOfLibsAndGenome =  array_merge($arrayOfLibsAndGenome,array($libraryToLookUp => "$genomeToLookUp"));
 }
 
@@ -555,8 +541,8 @@ if (curl_errno($ch)) {
 }
 curl_close ($ch);
 
-echo $ch . " is the result of ch for the upload !!!"
-
+echo $ch . " is the result of ch for the upload !!!";
+$initialcommand = "";
 $initialcommand = "mkdir -m 777 -p $analysispath &&\n";
 $initialcommand .= "mkdir -m 777 -p $analysispath/images &&\n";
 $initialcommand .= "echo \"$manifest\" > $manifestpath &&\n";
@@ -789,6 +775,7 @@ $commandsForUserFile = "";
 
 //$rcommand = ".libPaths(\"/var/www/R/x86_64-pc-linux-gnu-library/3.1\")\n";
 $rfilename = "command_$mytimeid.r";
+$rcommandpath = "";
 $rcommandpath = "$analysispath/$rfilename";
 
 //$rcommand .= "source(\"http://bioconductor.org/biocLite.R\") \n";
@@ -970,14 +957,16 @@ $commands .= $manyfilecommand;
 # HOWEVER...at the moment we want anyone in the lab to be able to work with anyone's data,
 # so we will move to a collective diffexpress output
 #$commands .= "mv -f $analysispath $subdirectories/".$_SESSION['user_name']."\n";
+
+$commands = "";
 $commands .= "mv -f $analysispath $diffdir/analysis_$analysisname \n";
- 
+
 # TinyURL Generation for the analysis
-function createTinyUrl($strURL) {
-    $tinyurl = file_get_contents("http://tinyurl.com/api-create.php?url=" . $strURL);
-    return $tinyurl;
-}
-$new_url = createTinyUrl($resultspath);
+#function createTinyUrl($strURL) {
+#    $tinyurl = file_get_contents("http://tinyurl.com/api-create.php?url=" . $strURL);
+#    return $tinyurl;
+#}
+#$new_url = createTinyUrl($resultspath);
 
 # generate the mail commands
 $premailtext = "Your DiffExpress analysis ".$analysisname." with run ID: ".$mytimeid." has been started!\n";
@@ -1008,7 +997,9 @@ $postmailcommand = 'echo "Your DiffExpress run with ID: '.$mytimeid.' completed 
 #	echo "Your DiffExpress run with ID: '.$mytimeid.' was unsuccessful! Please email an administrator with your run ID and subject line \"fRNAkenstein error\"" | mail -s "$(echo -e "fRNAkenstein DiffExpress Unsuccessful\nFrom: fRNAkbox <wtreible@raven.anr.udel.edu>\n")" '.$_SESSION['user_email'].'
 #fi';
 
-$commands = $failCheck.$premailcommand.$initialcommand.$commands.$postmailcommand;
+//$commands = $failCheck.$premailcommand.$initialcommand.$commands.$postmailcommand;
+
+$commands = $failCheck.$premailcommand.$commands.$postmailcommand;
 
 #$commands .= "\nCOUNTER_FILE=\"/home/allenhub/fRNAkenstein_log_file.txt\"";
 #$commands .= "\n echo \"we have made it to right before the final move command \" >>\$COUNTER_FILE \n";
@@ -1040,28 +1031,39 @@ $jsonBase = "{
     \"nodeCount\": 1, \n
     \"batchQueue\": \"serial\", \n
     \"archive\": false, \n
+
+
+
     \"archivePath\": \"\", \n 
+
+
     \"inputs\": { \n
         \"manPath\": [$fqPathAgave], \n
+
         \"annoPath\":\"agave://data.iplantcollaborative.org/$user/coge_data/$gid\", \n
         \"faPath\": \"$jsonIrod\", \n
+
+
          \"fpkmDirs\": \"agave://data.iplantcollaborative.org/allenhub/diffexpress_output/analysis_july_28/htseq_output \", \n
     	 \"outPut\": \"agave://data.iplantcollaborative.org/allenhub/diffexpress_output \", \n
-    	\"ControlCuffDiffPaths\": \"agave://data.iplantcollaborative.org/allenhub/diffexpress_output/analysis_july_28/htseq_output/469.bam,agave://data.iplantcollaborative.org/allenhub/di \" \n
+
+    	\"ControlCuffDiffPaths\": \"agave://data.iplantcollaborative.org/allenhub/diffexpress_output/analysis_july_28/htseq_output/469.bam,agave://data.iplantcollaborative.org/allenhub/di \", \n
     	\"controllibs\":[\"$folderPathsControl\"], \n
     	\"explibs\": [\"$folderPathsExp\"], \n
+
     	\"explibsBam\":[\"$bamPathsAgaveExp\"], \n
     	\"controllibsBam\":[\"$bamPathsAgaveControl\"], \n
-    	\"testMoveDir\": [\"agave://data.iplantcollaborative.org/allenhub/mapcount_output/library_469"]
+    	\"testMoveDir\": [\"agave://data.iplantcollaborative.org/allenhub/mapcount_output/library_469\"]
     },\n
     \"parameters\":{ \n
-        \"analysisName\": $analysisname, \n 
+        \"analysisName\": \"$analysisname\" \n 
     } \n
 } \n
 ";
 
 echo $jsonBase;
 echo "is the jsonBase !!! \n \n";
+echo "should be echoing !!!";
 
 ?>
 
